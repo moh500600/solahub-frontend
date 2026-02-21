@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>متجر الطاقة الشمسية</title>
+    
+    <!-- تحميل الخطوط (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <!-- ملف التطبيق الرئيسي - Vite سيتولى إضافة المسار الصحيح -->
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- حل مشكلة OAuth -->
+    <script>
+        // تعطيل OAuth تماماً
+        window.__DISABLE_AUTH__ = true;
+        
+        // منع أخطاء OAuth
+        window.addEventListener('error', function(e) {
+            if (e.message && e.message.includes('OAuth')) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }, true);
+    </script>
+</body>
+
+</html>
