@@ -1,0 +1,22 @@
+# Environment
+NODE_ENV=development
+
+# OAuth Configuration
+OAUTH_SERVER_URL=http://localhost:3000/api/auth
+OAUTH_CLIENT_ID=your_client_id
+OAUTH_CLIENT_SECRET=your_client_secret
+
+# Database
+DATABASE_URL=mysql://username:password@localhost:3306/solar_store
+
+# JWT
+JWT_SECRET=your_jwt_secret_key_here_change_this
+
+# AWS S3 (إذا كنت تستخدم تخزين ملفات)
+AWS_ACCESS_KEY_ID=your_access_key
+AWS_SECRET_ACCESS_KEY=your_secret_key
+AWS_REGION=us-east-1
+AWS_BUCKET_NAME=your_bucket_name
+
+# App
+PORT=3000
