@@ -7,7 +7,8 @@ import Home from "@/pages/Home";
 import SolarPanels from "@/pages/SolarPanels";
 import Batteries from "@/pages/Batteries";
 import BatteryDetail from "@/pages/BatteryDetail";
-import Inverters from "@/pages/Inverters";
+// ✅ تصحيح المسار: تغيير Inverters إلى inverters (بحروف صغيرة)
+import Inverters from "@/pages/inverters";
 import ProductDetail from "@/pages/ProductDetail";
 import Accessories from "@/pages/Accessories";
 import AccessoryDetail from "@/pages/AccessoryDetail";
@@ -60,6 +61,7 @@ import AgentsDashboard from "@/pages/agents/dashboard";
 import DutchBoard from "@/pages/admin/DutchBoard";
 import AdminBatteries from "@/pages/admin/batteries";
 import AdminSolarPanels from "@/pages/admin/solar-panels";
+// ✅ تصحيح المسار: تغيير Inverters إلى inverters (بحروف صغيرة)
 import AdminInverters from "@/pages/admin/inverters";
 import AdminSystems from "@/pages/admin/systems";
 import AdminAccessories from "@/pages/admin/accessories";
