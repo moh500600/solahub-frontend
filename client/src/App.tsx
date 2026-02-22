@@ -7,9 +7,10 @@ import Home from "@/pages/Home";
 import SolarPanels from "@/pages/SolarPanels";
 import Batteries from "@/pages/Batteries";
 import BatteryDetail from "@/pages/BatteryDetail";
-// ✅ تصحيح المسار: تغيير Inverters إلى inverters (بحروف صغيرة)
+// ✅ تغيير المسار إلى الحروف الصغيرة
 import Inverters from "@/pages/inverters";
 import ProductDetail from "@/pages/ProductDetail";
+// ✅ التأكد من وجود هذه الملفات
 import Accessories from "@/pages/Accessories";
 import AccessoryDetail from "@/pages/AccessoryDetail";
 import Systems from "@/pages/Systems";
@@ -22,7 +23,7 @@ import Favorites from "@/pages/Favorites";
 import Notifications from "@/pages/Notifications";
 import Messages from "@/pages/Messages";
 
-// صفحات المشاريع
+// صفحات المشاريع (تأكد من وجودها)
 import AgriculturalProjects from "@/pages/projects/agricultural";
 import CommercialProjects from "@/pages/projects/commercial";
 import GovernmentProjects from "@/pages/projects/government";
@@ -57,11 +58,10 @@ import TermsOfService from "@/pages/legal/terms";
 // صفحات الوكلاء
 import AgentsDashboard from "@/pages/agents/dashboard";
 
-// صفحات الإدارة
+// صفحات الإدارة - ✅ تصحيح المسارات إلى حروف صغيرة
 import DutchBoard from "@/pages/admin/DutchBoard";
 import AdminBatteries from "@/pages/admin/batteries";
 import AdminSolarPanels from "@/pages/admin/solar-panels";
-// ✅ تصحيح المسار: تغيير Inverters إلى inverters (بحروف صغيرة)
 import AdminInverters from "@/pages/admin/inverters";
 import AdminSystems from "@/pages/admin/systems";
 import AdminAccessories from "@/pages/admin/accessories";
@@ -210,6 +210,13 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 // --------------------------------------
+// مكون للصفحات قيد التطوير
+const ComingSoon = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-3xl font-bold mb-4">قريباً</h1>
+    <p className="text-muted-foreground">هذه الصفحة قيد التطوير</p>
+  </div>
+);
 
 // Private Route
 function PrivateRoute({
@@ -235,40 +242,16 @@ function PrivateRoute({
           return null;
         }
 
-        // إذا كانت الصفحة خاصة بالإدارة فقط
         if (adminOnly && userRole !== "admin") {
           window.location.href = "/user/dashboard";
           return null;
         }
 
-        // إذا كانت الصفحة خاصة بالوكلاء فقط
         if (agentOnly && userRole !== "agent") {
           window.location.href = "/user/dashboard";
           return null;
         }
 
-        // إذا كانت الصفحة للمستخدم العادي (غير admin و non agent)
-        if (!adminOnly && !agentOnly && userRole === "user") {
-          return <Component params={params} />;
-        }
-
-        // إذا كانت الصفحة للمستخدم العادي والوكيل يمكنهم الوصول
-        if (!adminOnly && !agentOnly && (userRole === "user" || userRole === "agent")) {
-          return <Component params={params} />;
-        }
-
-        // إذا كان المستخدم admin يحاول الوصول لصفحة غير إدارية
-        if (!adminOnly && userRole === "admin") {
-          window.location.href = "/admin/dashboard";
-          return null;
-        }
-
-        // إذا كان المستخدم agent يحاول الوصول لصفحة غير خاصة به
-        if (!agentOnly && userRole === "agent") {
-          return <Component params={params} />;
-        }
-
-        // في جميع الحالات الأخرى، عرض الصفحة
         return <Component params={params} />;
       }}
     </Route>
@@ -370,7 +353,7 @@ function Router() {
       <PrivateRoute path="/user/news" component={UserNews} />
       <PrivateRoute path="/user/orders" component={UserOrders} />
       
-      {/* مستخدم - Layouts (ممكن تستخدم كقوالب) */}
+      {/* مستخدم - Layouts */}
       <PrivateRoute path="/user/layout" component={UserLayout} />
       <PrivateRoute path="/user/layout-enhanced" component={UserLayoutEnhanced} />
 
